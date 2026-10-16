@@ -64,8 +64,11 @@ public class Main {
             }
             System.out.println("};");
         }
+        long startTime = System.nanoTime();
         DAGraph dag = G.DAGCompression();
-        System.out.println("Граф был DAG-сжат");
+        long endTime = System.nanoTime();
+        double algTime = (double) (endTime - startTime) / 1000000;
+        System.out.println("Граф был DAG-сжат за " + algTime + " мс");
         SwitchingGraph swg = new SwitchingGraph(dag);
         System.out.println("Граф был преобразован в switching graph");
         choice2 = 1;
